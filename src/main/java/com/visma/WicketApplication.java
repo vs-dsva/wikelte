@@ -31,7 +31,9 @@ public class WicketApplication extends WebApplication
 		super.init();
 
 		// needed for the styling used by the quickstart
-		getCspSettings().blocking()
+		getCspSettings().blocking().clear()
+			.add(CSPDirective.DEFAULT_SRC, CSPDirectiveSrcValue.SELF)
+			.add(CSPDirective.SCRIPT_SRC, CSPDirectiveSrcValue.SELF)
 			.add(CSPDirective.STYLE_SRC, CSPDirectiveSrcValue.SELF)
 			.add(CSPDirective.STYLE_SRC, "https://fonts.googleapis.com/css")
 			.add(CSPDirective.FONT_SRC, "https://fonts.gstatic.com");
